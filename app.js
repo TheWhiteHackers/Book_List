@@ -13,19 +13,25 @@ UI.prototype.addBook=function(mybook){
     <td>${mybook.title}</td>
     <td>${mybook.author}</td>
     <td>${mybook.isbn}</td>
-    <td>X</td>`
+    <td class="delete">X</td>`
 
     tableList.appendChild(row);
 }
 
-UI.prototype.clearfield=function(){
+
+
+UI.prototype.clearfield=function(e){
     document.getElementById("title").value="";
     document.getElementById("author").value="";
     document.getElementById("isbn").value="";
-
+    
 }
 
-
+UI.prototype.deletebook=function(target){
+    if (target.className === "delete") {
+        target.parentElement.parentElement.remove();
+    }
+}
 
 // document.getElementById("book-form").addEventListener("submit", function(e) {
 //     e.preventDefult();
@@ -52,3 +58,29 @@ document.getElementById("book-form").addEventListener("submit",function(e){
     newUI.clearfield()
 
 })
+
+
+document.getElementById("book-list").addEventListener("click", function(e){
+    const newUI = new UI();
+    newUI.deletebook(e.target)
+    console.log(e.class);
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
