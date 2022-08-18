@@ -10,15 +10,30 @@ UI.prototype.addBook=function(mybook){
     const tableList = document.getElementById("book-list");
     const row = document.createElement("tr");
     row.innerHTML=`
-    <td>${mybook.title}</td>
-    <td>${mybook.author}</td>
-    <td>${mybook.isbn}</td>
+    <td class="table-info">${mybook.title}</td>
+    <td class="table-light">${mybook.author}</td>
+    <td class="table-info">${mybook.isbn}</td>
     <td class="delete">X</td>`
 
     tableList.appendChild(row);
+    const newUI = new UI();
+    newUI.message("book added", "sucess");
 }
 
+UI.prototype.message=function(message, className){
+ console.log(message, className);   
+ let div = document.createElement("div");
+ div.className=`alert $(className)`;
+ let mymessage= document.createTextNode(message);
+ div.appendChild(mymessage);
+ let container= document.querySelector(".col");
+ let table= document.querySelector(".table");
+ container.insertBefore(div, table);
+ setTimeout(function () {
+    document.querySelector(".alert").remove();
+  }, 3000);
 
+}
 
 UI.prototype.clearfield=function(e){
     document.getElementById("title").value="";
@@ -29,7 +44,7 @@ UI.prototype.clearfield=function(e){
 
 UI.prototype.deletebook=function(target){
     if (target.className === "delete") {
-        target.parentElement.parentElement.remove();
+        target.parentElement.remove();
     }
 }
 
@@ -63,6 +78,7 @@ document.getElementById("book-form").addEventListener("submit",function(e){
 document.getElementById("book-list").addEventListener("click", function(e){
     const newUI = new UI();
     newUI.deletebook(e.target)
+    newUI.message("book deleted", "error");
     console.log(e.class);
 
 })
