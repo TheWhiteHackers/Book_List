@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+24&family=Silkscreen:wght@400;700&display=swap');
 body{
-     padding-top: 25px;
+    padding-top: 25px;
+    font-family: "Silkscreen", sans-serif;
+    text-align: center;
+    background-color: #d5bdaf;
+}
+h1{
+    font-family: "Jacquard 24", system-ui;
+    font-size: 60px;
+}
+h2{
+    font-family: "Jacquard 24", system-ui;
 }
 .error{
     background-color: rgb(251, 52, 52);
@@ -8,4 +19,28 @@ body{
 .sucess{
     background-color: rgb(8, 152, 8);
     color: white;
+}
+.table-info{
+    background-color: #b8aa9c !important;
+}
+.table-light{
+    background-color: #f5ebe0 !important;
+}
+.table{
+    border: 4px solid black;
+}
+tbody{
+    border: 4px solid black;
+}
+tr{
+    border: 4px solid black;
+}
+input{
+    background-color: #f5ebe0;
+    border: 3px solid black;
+}
+#submit{
+    background-color: #e3d5ca;
+    border: 3px solid black;
+
 }
